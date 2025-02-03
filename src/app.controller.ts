@@ -9,4 +9,11 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('/env')
+  getEnv() {
+    const DATABASE_URL = process.env.DATABASE_URL;
+
+    return { DATABASE_URL };
+  }
 }
