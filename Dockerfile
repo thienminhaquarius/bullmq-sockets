@@ -6,10 +6,16 @@ WORKDIR /usr/src/app
 
 # Copy package.json and install dependencies
 COPY package.json yarn.lock ./
-RUN yarn
+RUN yarn install --production
 
 # Copy application source code
 COPY . .
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Build the NestJS application
+RUN yarn build
 
 # Expose port
 EXPOSE 3000
