@@ -11,16 +11,16 @@ phases:
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$IMAGE_TAG .
-      - docker tag 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$IMAGE_TAG 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$COMMIT_HASH
+      - docker build -t 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$IMAGE_TAG .
+      - docker tag 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$IMAGE_TAG 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$COMMIT_HASH
 
   post_build:
     commands:
       - echo Pushing Docker image...
-      - docker push 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$IMAGE_TAG
-      - docker push 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$COMMIT_HASH
+      - docker push 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$IMAGE_TAG
+      - docker push 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$COMMIT_HASH
       - echo Writing imagedefinitions.json...
-      - printf '[{"name":"nestjs-container","imageUri":"%s"}]' 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/nestjs-app:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"nestjs-container","imageUri":"%s"}]' 224758575768.dkr.ecr.ap-southeast-1.amazonaws.com/job-repo:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
