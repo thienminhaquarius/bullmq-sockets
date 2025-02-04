@@ -6,7 +6,7 @@ env:
     AWS_ACCOUNT_ID: '224758575768'
     ECR_REPO_NAME: 'job-repo'
     ECS_CLUSTER_NAME: 'job-app-cluster'
-    ECS_SERVICE_NAME: 'jpb-app-ecs-service'
+    ECS_SERVICE_NAME: 'job-app-ecs-service'
     ECS_TASK_DEFINITION: 'job-app-task-def'
 
 phases:
