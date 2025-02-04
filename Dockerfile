@@ -11,10 +11,13 @@ RUN yarn install --production
 # Copy application source code
 COPY . .
 
+# Ensure TypeScript is installed
+RUN yarn add typescript
+
 # Generate Prisma client
 RUN npx prisma generate
 
-# Build the NestJS application
+# Build the application
 RUN yarn run build
 
 # Expose port
