@@ -4,6 +4,10 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /usr/src/app
 
+
+# Install Yarn globally
+RUN corepack enable && yarn set version stable
+
 # Install global dependencies
 RUN yarn global add @nestjs/cli
 
