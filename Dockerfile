@@ -4,6 +4,9 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /usr/src/app
 
+# Install global dependencies
+RUN yarn global add @nestjs/cli
+
 # Copy package.json and install dependencies
 COPY package.json yarn.lock ./
 RUN yarn install --production
