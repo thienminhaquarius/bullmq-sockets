@@ -20,7 +20,7 @@ RUN npx prisma generate
 # Build the application
 RUN yarn run build
 
-# Expose port
+# Expose port.
 EXPOSE 3000
 
 # Start the application
